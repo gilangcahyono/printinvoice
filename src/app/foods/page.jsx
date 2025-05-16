@@ -4,14 +4,14 @@ import Pagination from "@/components/Pagination";
 import TitleData from "@/components/TitleData";
 
 const Page = async ({ searchParams }) => {
-  const limit = searchParams.limit || 7;
-  const skip = searchParams.skip || 0;
+  const page = searchParams.limit || 1;
 
   const res = await fetch(
-    `https://dummyjson.com/recipes?limit=${limit}&skip=${skip}`
+    `https://jsonplaceholder.typicode.com/todos?_page=${page}`
   );
-  const data = await res.json();
-  const foods = data.recipes;
+  const foods = await res.json();
+  // console.log(data);
+  // const foods = data.recipes;
 
   return (
     <div className="space-y-6">
@@ -26,7 +26,7 @@ const Page = async ({ searchParams }) => {
                 Id
               </th>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Name
+                Title
               </th>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Action
@@ -39,12 +39,12 @@ const Page = async ({ searchParams }) => {
         </table>
       </main>
 
-      <Pagination
+      {/* <Pagination
         total={data.total}
         length={foods.length}
         limit={limit}
         skip={skip}
-      />
+      /> */}
     </div>
   );
 };

@@ -47,7 +47,7 @@ const DataList = ({ initialFoods }) => {
         {food.id}
       </td>
       <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
-        <Link href={`/foods/${food.id}`}>{food.name}</Link>
+        <Link href={`/foods/${food.id}`}>{food.title}</Link>
       </td>
       <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
         <div className="flex item-center">
